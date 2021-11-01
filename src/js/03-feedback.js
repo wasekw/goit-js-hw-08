@@ -11,13 +11,19 @@ feedbackForm.addEventListener('input', throttle(catchDataForm, 500));
 feedbackForm.addEventListener('submit', (event) => {
  event.preventDefault();
 
- console.log('User email is:', feedbackForm.email.value);
- console.log('User message is:', feedbackForm.message.value);
+//  console.log('User email is:', feedbackForm.email.value);
+//  console.log('User message is:', feedbackForm.message.value);
+
+    console.log(saveObject);
+
  localStorage.removeItem(LOCALSTORAGE_KEY);
- Object.entries(feedbackForm).forEach(([name])=> {
-  saveObject[name] = '';
-  feedbackForm.elements[name].value = '';
- })
+//  Object.entries(feedbackForm).forEach(([name])=> {
+//   saveObject[name] = '';
+//   feedbackForm.elements[name].value = '';
+//  })
+  event.currentTarget.reset();
+  saveObject.email = '';
+  saveObject.message = '';
 })
 
 function catchDataForm (event) {
